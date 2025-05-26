@@ -1,22 +1,51 @@
 import React from 'react'
+import {Container, Nav, Navbar, Row}  from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function Header()
 {
     return (
         <>
-            <div className="nav navbar-expand-md navbar-light ">
-                <div className="navbar-brand">
-                    <box-icon size="30px" color="red" name="store"></box-icon>
-                </div>
-                <div className="collapse navbar-collapse">
-                    <div className="navbar-nav">
-                        <Link className='nav-item nav-link active' to="/">Home</Link>
-                        <Link className='nav-item nav-link' to="/about">About</Link>
-                        <Link className='nav-item nav-link' to="/Contact">Contact</Link>
-                    </div>
-                </div>
-            </div>
+            {/* header component */}
+            <Navbar className='position-fixed w-100' bg='light' expand='md' dir='rtl'>
+                <Container fluid={true}>
+                    <Navbar.Brand>
+                        <Link to='/'>
+                            <box-icon name='store' size='40px' color='red' />
+                        </Link>
+                    </Navbar.Brand>
+                    <Navbar.Toggle  style={{outline:"none", boxShadow:"none" , border:"none"}} >
+                        <box-icon name='menu' size='30px' />
+                    </Navbar.Toggle>
+                    
+                    <Navbar.Collapse className='align-items-center justify-content-center'>
+                        <Nav>
+                            <Nav.Item>
+                                <Link className='nav-link active' role='button' to="/">خانه</Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link className='nav-link' role='button' to="/">محصولات</Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link className='nav-link' role='button' to="/about">درباره ما</Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link className='nav-link' role='button' to="/contact">ارتباط با ما</Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                    <Navbar.Collapse className='flex-grow-0'>
+                        <Nav dir='ltr'>
+                            <Nav.Item>
+                                <Link to='/account'><box-icon type='solid' name='user-circle' size='30px' /></Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link to='/'><box-icon type='solid' name='bell' animation='tada' size='30px' /></Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </>
     )
 }
