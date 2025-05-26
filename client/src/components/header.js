@@ -7,7 +7,7 @@ function Header()
     return (
         <>
             {/* header component */}
-            <Navbar className='position-fixed w-100' bg='light' expand='md' dir='rtl'>
+            <Navbar bg='light' expand='md' dir='rtl'>
                 <Container fluid={true}>
                     <Navbar.Brand>
                         <Link to='/'>
@@ -34,7 +34,7 @@ function Header()
                             </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>
-                    <Navbar.Collapse className='flex-grow-0'>
+                    <div className='collapse navbar-collapse flex-grow-0'>
                         <Nav dir='ltr'>
                             <Nav.Item>
                                 <Link to='/account'><box-icon type='solid' name='user-circle' size='30px' /></Link>
@@ -43,7 +43,7 @@ function Header()
                                 <Link to='/'><box-icon type='solid' name='bell' animation='tada' size='30px' /></Link>
                             </Nav.Item>
                         </Nav>
-                    </Navbar.Collapse>
+                    </div>
                 </Container>
             </Navbar>
         </>
