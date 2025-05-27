@@ -1,13 +1,39 @@
 body{
     font-family: yekan, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
+.btn-close {
+    margin: 0 !important;
+}
+.nav-link{
+    font-size: 17px;
+}
 
+/* style the sidebar */
+.offcanvas{
+    width: 250px !important;
+    background-color: #f8f9fa;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.offcanvas.show .nav-item{
+    padding: 5px;
+    border-radius: 12px;
+}
+.offcanvas.show .nav-item:hover{
+    background-color: #e9ecef;
+}
+
+/* make icon visible in sidebar and invisible in main header */
+.offcanvas.show .nav-item box-icon{
+    display: block;
+}
+.offcanvas .nav-item box-icon{
+    display: none;
+}
+
+/* font face for yekan */
 @font-face {
     font-family: yekan;
     font-weight: normal;
