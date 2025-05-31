@@ -33,6 +33,31 @@ body{
     display: none;
 }
 
+/* home page banner pics */
+.jumbotron {
+    height: 400px;
+    background-image: url('../imgs/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ads pics styles */
+.img-lg {
+    width: 800px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.img-sm {
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+
 /* font face for yekan */
 @font-face {
     font-family: yekan;
@@ -48,3 +73,23 @@ body{
     font-display: swap;
 }
 
+/* making web page responsive */
+@media screen and (max-width:1200px) {
+    .jumbotron{
+        height: 390px;
+    }
+}
+@media screen and (max-width:780px) {
+    .jumbotron{
+        height: 300px;
+    }
+    .box img{
+        height: 150px;
+        width: 300px;
+    }
+}
+@media screen and (max-width:600px) {
+    .jumbotron{
+        height: 250px;
+    }
+}
