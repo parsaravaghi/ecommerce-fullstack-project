@@ -49,12 +49,15 @@ function Header()
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                     <div className='collapse navbar-collapse flex-grow-0'>
-                        <Nav dir='ltr'>
+                        <Nav dir='rtl'>
                             <Nav.Item>
                                 <Link to='/account'><box-icon type='solid' name='user-circle' size='30px' /></Link>
                             </Nav.Item>
                             <Nav.Item>
                                 <Link to='/'><box-icon type='solid' name='bell' animation='tada' size='30px' /></Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link to='/search'><box-icon color='black' name='search' size='30px' /></Link>
                             </Nav.Item>
                         </Nav>
                     </div>
