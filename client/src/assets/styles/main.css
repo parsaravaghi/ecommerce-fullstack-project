@@ -3,6 +3,12 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/* general styles */
+.dir-rtl{
+    direction: rt;
+}
+
 .btn-close {
     margin: 0 !important;
 }
@@ -56,7 +62,15 @@ body{
     border-radius: 20px;
 }
 
+/* style products */
+.product img{
+    height: 200px;
+    object-fit: cover;
+}
 
+.product button{
+    
+}
 
 /* font face for yekan */
 @font-face {
@@ -83,13 +97,12 @@ body{
     .jumbotron{
         height: 300px;
     }
-    .box img{
-        height: 150px;
-        width: 300px;
-    }
 }
 @media screen and (max-width:600px) {
     .jumbotron{
         height: 250px;
+    }
+    .product img{
+        height: 150px;
     }
 }
