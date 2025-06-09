@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+// Routs
+Route::get("/" , function(){
+    return response()->json([ "message" => "home page" ]);
 });
