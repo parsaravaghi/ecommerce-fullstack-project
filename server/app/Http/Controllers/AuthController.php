@@ -25,8 +25,14 @@ class AuthController extends Controller
                 "username" => $request->username 
             ])->first();
 
+            // set user not found message
+            if(!$user)
+            {
+                return response()->json(["error" => "user not found"] , 401);
+            }
+
             // Match user's password and the password that we selected 
-            if($user && Hash::check($request->password , $user->password))
+            if(Hash::check($request->password , $user->password))
             {
                 // Login user
                 Auth::login($user,true);
