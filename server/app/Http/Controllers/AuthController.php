@@ -32,7 +32,7 @@ class AuthController extends Controller
             }
 
             // Match user's password and the password that we selected 
-            if(Hash::check($request->password , $user->password))
+            if($user && Hash::check($request->password , $user->password))
             {
                 // Login user
                 Auth::login($user,true);
