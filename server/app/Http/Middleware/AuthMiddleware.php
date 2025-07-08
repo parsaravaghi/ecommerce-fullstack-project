@@ -6,6 +6,10 @@ use Auth;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthMiddleware
 {
@@ -16,10 +20,10 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // return error message if client is authenticated
-        if(Auth::user())
+        // Get user data and return error message if usser would be logged in
+        if(auth('api')->user())
         {
-            return response()->json(["error" => "you logged in before"] , 409);
+            return response()->json(["error" => "You logged in before"] , 401);
         }
         return $next($request);
     }

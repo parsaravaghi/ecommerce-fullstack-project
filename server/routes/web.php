@@ -12,3 +12,4 @@ Route::get("/" , function(){
 Route::post('/login' , [AuthController::class , "Login"])->middleware([AuthMiddleware::class]);
 Route::post('/register' , [AuthController::class , "Register"])->middleware([AuthMiddleware::class]);
 Route::post('/logout' , [AuthController::class , "Logout"]);
+Route::get('/user' , [AuthController::class , "User"]);
