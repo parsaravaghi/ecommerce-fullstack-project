@@ -2,47 +2,41 @@
 
 namespace App\Http\Controllers\Validator;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 
 class AuthValidator 
 {
-    public $request;
     public $validator;
-
-    // Validating user data at the selected page
-    function __construct(Request $request)
-    {
-        $this->request = $request;
-    } 
     
     // validate login page function
-    public function ValidateLogin()
+    public function ValidateLogin(Request $request)
     {   
-        $validate = Validator::make(
-            $this->request->all() ,
+        $validator = Validator::make(
+            $request->all() ,
             [
                 "username" => "string|required|max:20" ,
                 "password" => "string|required|min:8"
             ]
         );
-        return $validate->fails() 
-        ? ["status" =>false ,"errors" => $validate->errors()]
-        : ["status" => true , "body" => $validate->getData()];
+        return $validator->fails() 
+        ? ["status" =>false ,"errors" => $validator->errors()]
+        : ["status" => true , "body" => $validator->getData()];
     }
     // validate register page function
-    public function ValidateRegister()
+    public function ValidateRegister(Request $request)
     {   
-        $validate = Validator::make(
-            $this->request->all() ,
+        $validator = Validator::make(
+            $request->all() ,
             [
                 "username" => "string|required|max:20|unique:users" ,
                 "email" => "email|required|unique:users" ,
                 "password" => "string|min:8"
             ]
         );
-        return $validate->fails() 
-        ? ["status" =>false ,"errors" => $validate->errors()]
-        : ["status" => true , "body" => $validate->getData()];
+        return $validator->fails() 
+        ? ["status" =>false ,"errors" => $validator->errors()]
+        : ["status" => true , "body" => $validator->getData()];
     }
 }

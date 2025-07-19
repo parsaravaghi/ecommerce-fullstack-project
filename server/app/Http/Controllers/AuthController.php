@@ -14,8 +14,7 @@ class AuthController extends Controller
     public function Login(Request $request)
     {
         // Validate user's data
-        $validate = new AuthValidator($request);
-        $validate = $validate->ValidateLogin();
+        $validate = new AuthValidator()->ValidateLogin($request);
 
         // Login user if user's data is validated
         if($validate['status'])
@@ -29,7 +28,6 @@ class AuthController extends Controller
                 "token" => $token ,
                 "type_token" => "Bearer" ,
             ]);
-
         }
         else
         {
@@ -48,8 +46,7 @@ class AuthController extends Controller
     public function Register(Request $request)
     {
         // validate request body
-        $validate = new AuthValidator($request);
-        $validate = $validate->ValidateRegister();
+        $validate = new AuthValidator()->ValidateRegister($request);
 
         if($validate['status'])
         {
