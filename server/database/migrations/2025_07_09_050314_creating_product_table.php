@@ -13,12 +13,14 @@ return new class extends Migration
         //
         Schema::create('products' , function (Blueprint $table){
             $table->id();
-            $table->string("title" , 225)->unique();
-            $table->string("imageUrl");
+            $table->string("name" , 225)->unique();
             $table->text("description");
             $table->bigInteger("price" );
+            $table->string("image_url");
             $table->integer("products_count");
-            $table->integer("sales_count")->default(0) ;
+            $table->integer("sales_count")->default(0);
+            $table->boolean("is_verified")->default(false);
+            $table->foreignId('owner')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

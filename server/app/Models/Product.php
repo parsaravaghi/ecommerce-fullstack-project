@@ -8,11 +8,13 @@ class Product extends Model
 {
     //
     protected $fillable = [
-        "title" ,
+        "name" ,
         "description" ,
         "price" ,
         "products_count" ,
-        "imageUrl"
+        "image_url" ,
+        "is_verified" ,
+        "owner"
     ];
 
     protected $hidden = [
